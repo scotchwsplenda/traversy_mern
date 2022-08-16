@@ -366,17 +366,27 @@ button {
   padding: 1rem;
   line-height: 1.8;
   margin-bottom: 1rem;
+  margin: 1rem 0;
+  border-radius: 12px;
+  background-color: #4b4b4b;
+
 }
 
 /* Profile Page */
 .profile-grid {
   display: grid;
   grid-template-areas:
-    'top top'
-    'about about'
-    'exp edu'
-    'github github';
+  'about'
+  'top';
   grid-gap: 1rem;
+  border: 2ex;
+  background-color: #3f729b;
+  margin: 1rem 0;
+  line-height: 1.8;
+  border-radius: 15px;
+  justify-content: center;
+  min-height: 24rem;
+
 }
 
 .profile-top {
@@ -386,79 +396,38 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 1rem;
+  background-color: #28a745;
+  border-radius: 12px;
 }
-
-.profile-top img {
-  width: 250px;
-}
-
-.profile-top .icons a {
-  color: #fff;
-  margin: 0 0.3rem;
-}
-
-.profile-top .icons a:hover {
-  color: var(--dark-color);
-}
-
-.profile-about {
-  grid-area: about;
-  text-align: center;
-}
-
-.profile-about .skills {
+.profile-about{
+  grid-area: about about;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: top;
   justify-content: center;
   text-align: center;
+  background-color: lightgrey;
+  border-radius: 12px;
+  grid-template-columns: 1fr 4fr;
 }
-
-.profile-exp {
-  grid-area: exp;
+.score {
+  text-align: center;
+  border-radius: 12px;
+  background-color: whitesmoke;
+  height: 2rem;
+  align-items: flex-end;
 }
-
-.profile-edu {
-  grid-area: edu;
-}
-
-.profile-exp h2,
-.profile-edu h2 {
-  margin-bottom: 1rem;
-}
-
-.profile-exp > div,
-.profile-edu > div {
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: #ccc 1px dotted;
-}
-
-.profile-exp > div:last-child,
-.profile-edu > div:last-child {
-  border: 0;
-}
-
-.profile-exp p,
-.profile-edu p {
-  margin: 0.5rem 0;
-}
-
-.profile-github {
-  grid-area: github;
-}
-
-.profile-github .repo {
+.profile-score{
+  grid-area: about about;
   display: flex;
-}
-
-.profile-github .repo > div:first-child {
-  flex: 7;
-  flex-basis: 70%;
-}
-
-.profile-github > div:last-child {
-  flex: 3;
-  flex-basis: 20%;
+  flex-direction: column;
+  align-items: top;
+  justify-content: center;
+  text-align: center;
+  background-color: lightgrey;
+  border-radius: 12px;
+  grid-template-columns: 1fr 4fr;
 }
 
 /* Posts Page */
@@ -487,7 +456,7 @@ button {
   color: var(--primary-color);
   padding: 0.1rem 0.2rem;
   border-radius: 5px;
-  font-size: 0.8rem;
+  font-size: 2rem;
 }
 
 .post .post-date {
