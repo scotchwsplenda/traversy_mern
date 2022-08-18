@@ -5,7 +5,10 @@ const Week = (props) => {
 
 const [inputs, setInputs] = useState({
     [props.teamscore] : 0
-    , [props.oppscore] : 0  })
+    , [props.oppscore] : 0  
+    // teamscore: 0,
+    // oppscore: 0
+})
 
 const handleChange = (event) => {
     const name = event.target.name;
@@ -15,6 +18,7 @@ const handleChange = (event) => {
 
 // this thing is for passing it up to the parent component
 props.onSaveWeekData(inputs);
+// props.butt(inputs);
     return (
 
     <div className="profile-grid">
@@ -24,16 +28,20 @@ props.onSaveWeekData(inputs);
     <div><h3 >{props.team} Score</h3></div>
     <input className="score" 
     type="number" 
+    // name="teamscore"
     name={[props.teamscore]}
     value={inputs.props} //this seems like it should be inputs.[props.teamscore] or [inputs.props.teamscore]
     onChange={handleChange} 
+    min="0"
     />
     <div><h3 >{props.tix.split(" ")[1]} Score</h3></div>
     <input className='score' 
     type="number" 
     name={[props.oppscore]}
+    // name="oppscore"
     value={inputs.props}
     onChange={handleChange} 
+    min="0"
 
     />
     </div>

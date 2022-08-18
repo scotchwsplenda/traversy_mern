@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import options from '../../NFL_Schedule2022.json'
 import Week from './Week';
+import axios from 'axios';
 
 // https://www.reactshark.com/blog/display-json-react
 
@@ -11,7 +12,7 @@ const Newguess = () => {
 
 
 // const [inputs, BASICALLY RELOADS THE SCREEN WITH USER INPUT ] = React.useState({});
-  const [inputs, setInputs] = React.useState({
+  const [inputs, setInputs] = useState({
     team : "Seahawks"
     , guessername: ""
   });
@@ -29,14 +30,70 @@ const Newguess = () => {
   }
 
   const handleSaveWeekData = (enteredWeekData) => {
-    const weekData = {
-      ...enteredWeekData};
-    console.log(weekData)
-  };
+    const weekData = {...enteredWeekData}
+// need to concatenate all the weekly guesses and the inputs into a single object but I can't get 'weekData' out of this function
+    Object.assign(inputs, weekData)
+        console.log(inputs)
+  }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async event => {
     event.preventDefault();
     console.log(inputs)
+    const guessy = {
+      guessername: inputs.guessername
+      ,team: inputs.team
+      ,Week1_oppscore: inputs.Week1_oppscore
+      ,Week2_oppscore: inputs.Week2_oppscore
+      ,Week3_oppscore: inputs.Week3_oppscore
+      ,Week4_oppscore: inputs.Week4_oppscore
+      ,Week5_oppscore: inputs.Week5_oppscore
+      ,Week6_oppscore: inputs.Week6_oppscore
+      ,Week7_oppscore: inputs.Week7_oppscore
+      ,Week8_oppscore: inputs.Week8_oppscore
+      ,Week9_oppscore: inputs.Week9_oppscore
+      ,Week10_oppscore: inputs.Week10_oppscore
+      ,Week11_oppscore: inputs.Week11_oppscore
+      ,Week12_oppscore: inputs.Week12_oppscore
+      ,Week13_oppscore: inputs.Week13_oppscore
+      ,Week14_oppscore: inputs.Week14_oppscore
+      ,Week15_oppscore: inputs.Week15_oppscore
+      ,Week16_oppscore: inputs.Week16_oppscore
+      ,Week17_oppscore: inputs.Week17_oppscore
+      ,Week18_oppscore: inputs.Week18_oppscore
+      ,Week1_teamscore: inputs.Week1_teamscore
+      ,Week2_teamscore: inputs.Week2_teamscore
+      ,Week3_teamscore: inputs.Week3_teamscore
+      ,Week4_teamscore: inputs.Week4_teamscore
+      ,Week5_teamscore: inputs.Week5_teamscore
+      ,Week6_teamscore: inputs.Week6_teamscore
+      ,Week7_teamscore: inputs.Week7_teamscore
+      ,Week8_teamscore: inputs.Week8_teamscore
+      ,Week9_teamscore: inputs.Week9_teamscore
+      ,Week10_teamscore: inputs.Week10_teamscore
+      ,Week11_teamscore: inputs.Week11_teamscore
+      ,Week12_teamscore: inputs.Week12_teamscore
+      ,Week13_teamscore: inputs.Week13_teamscore
+      ,Week14_teamscore: inputs.Week14_teamscore
+      ,Week15_teamscore: inputs.Week15_teamscore
+      ,Week16_teamscore: inputs.Week16_teamscore
+      ,Week17_teamscore: inputs.Week17_teamscore
+      ,Week18_teamscore: inputs.Week18_teamscore    }
+      try{
+        const config = {
+          headers:
+          {
+            'Content-Type' : 'application/JSON'
+          }
+        }
+        const body = JSON.stringify(guessy);
+
+        const res = await axios.post('/api/guess', body, config);
+        console.log(res.data)
+      }
+      catch(err){
+
+      }
+    console.log(guessy)
   }
 
 return <Fragment>

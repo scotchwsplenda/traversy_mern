@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const GuessSchema = new mongoose.Schema({
     guessername: {type: String,required: true,unique: true},
     date: {type: Date,default: Date.now},
+    team: {type: String,required: true},
     Week1_oppscore :   {  type: Number,required: true},
     Week2_oppscore :   {  type: Number,required: true},
     Week3_oppscore :   {  type: Number,required: true},

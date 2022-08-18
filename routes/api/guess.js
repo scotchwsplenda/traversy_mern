@@ -4,7 +4,7 @@ const {check, validationResult} = require("express-validator");
 
 const Guess = require('../../models/Guess')
 
-
+// @route POST api/guess
 router.post(
 //this is the address, defined more precisely in the server.js
 '/',
@@ -16,79 +16,85 @@ const errors = validationResult(req);
 if(!errors.isEmpty()){
     return res.status(400).json({errors:errors.array()});}    
 const {guessername
+    ,team
     ,date
-    ,week1_oppscore
-    ,week2_oppscore
-    ,week3_oppscore
-    ,week4_oppscore
-    ,week5_oppscore
-    ,week6_oppscore
-    ,week7_oppscore
-    ,week8_oppscore
-    ,week9_oppscore
-    ,week10_oppscore
-    ,week11_oppscore
-    ,week12_oppscore
-    ,week13_oppscore
-    ,week14_oppscore
-    ,week15_oppscore
-    ,week16_oppscore
-    ,week17_oppscore
-    ,week1_teamscore
-    ,week2_teamscore
-    ,week3_teamscore
-    ,week4_teamscore
-    ,week5_teamscore
-    ,week6_teamscore
-    ,week7_teamscore
-    ,week8_teamscore
-    ,week9_teamscore
-    ,week10_teamscore
-    ,week11_teamscore
-    ,week12_teamscore
-    ,week13_teamscore
-    ,week14_teamscore
-    ,week15_teamscore
-    ,week16_teamscore
-    ,week17_teamscore
+    ,Week1_oppscore
+    ,Week2_oppscore
+    ,Week3_oppscore
+    ,Week4_oppscore
+    ,Week5_oppscore
+    ,Week6_oppscore
+    ,Week7_oppscore
+    ,Week8_oppscore
+    ,Week9_oppscore
+    ,Week10_oppscore
+    ,Week11_oppscore
+    ,Week12_oppscore
+    ,Week13_oppscore
+    ,Week14_oppscore
+    ,Week15_oppscore
+    ,Week16_oppscore
+    ,Week17_oppscore
+    ,Week18_oppscore
+    ,Week1_teamscore
+    ,Week2_teamscore
+    ,Week3_teamscore
+    ,Week4_teamscore
+    ,Week5_teamscore
+    ,Week6_teamscore
+    ,Week7_teamscore
+    ,Week8_teamscore
+    ,Week9_teamscore
+    ,Week10_teamscore
+    ,Week11_teamscore
+    ,Week12_teamscore
+    ,Week13_teamscore
+    ,Week14_teamscore
+    ,Week15_teamscore
+    ,Week16_teamscore
+    ,Week17_teamscore
+    ,Week18_teamscore
     } = req.body
 guess = new Guess({
     guessername
     ,date
-    ,week1_oppscore 
-    ,week2_oppscore 
-    ,week3_oppscore 
-    ,week4_oppscore 
-    ,week5_oppscore 
-    ,week6_oppscore 
-    ,week7_oppscore 
-    ,week8_oppscore 
-    ,week9_oppscore 
-    ,week10_oppscore 
-    ,week11_oppscore 
-    ,week12_oppscore 
-    ,week13_oppscore 
-    ,week14_oppscore 
-    ,week15_oppscore 
-    ,week16_oppscore 
-    ,week17_oppscore 
-    ,week1_teamscore 
-    ,week2_teamscore 
-    ,week3_teamscore 
-    ,week4_teamscore 
-    ,week5_teamscore 
-    ,week6_teamscore 
-    ,week7_teamscore 
-    ,week8_teamscore 
-    ,week9_teamscore 
-    ,week10_teamscore 
-    ,week11_teamscore 
-    ,week12_teamscore 
-    ,week13_teamscore 
-    ,week14_teamscore 
-    ,week15_teamscore 
-    ,week16_teamscore 
-    ,week17_teamscore 
+    ,team
+    ,Week1_oppscore 
+    ,Week2_oppscore 
+    ,Week3_oppscore 
+    ,Week4_oppscore 
+    ,Week5_oppscore 
+    ,Week6_oppscore 
+    ,Week7_oppscore 
+    ,Week8_oppscore 
+    ,Week9_oppscore 
+    ,Week10_oppscore 
+    ,Week11_oppscore 
+    ,Week12_oppscore 
+    ,Week13_oppscore 
+    ,Week14_oppscore 
+    ,Week15_oppscore 
+    ,Week16_oppscore 
+    ,Week17_oppscore 
+    ,Week18_oppscore 
+    ,Week1_teamscore 
+    ,Week2_teamscore 
+    ,Week3_teamscore 
+    ,Week4_teamscore 
+    ,Week5_teamscore 
+    ,Week6_teamscore 
+    ,Week7_teamscore 
+    ,Week8_teamscore 
+    ,Week9_teamscore 
+    ,Week10_teamscore 
+    ,Week11_teamscore 
+    ,Week12_teamscore 
+    ,Week13_teamscore 
+    ,Week14_teamscore 
+    ,Week15_teamscore 
+    ,Week16_teamscore 
+    ,Week17_teamscore 
+    ,Week18_teamscore 
 });
 
 await guess.save();
