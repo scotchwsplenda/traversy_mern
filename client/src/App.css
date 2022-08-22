@@ -584,3 +584,8 @@ button {
   gap: 10px;
   grid-auto-rows: minmax(100px, auto);
 }
+
+table, th, td {
+  border: 1px solid black;
+  border-radius: 10px;
+}

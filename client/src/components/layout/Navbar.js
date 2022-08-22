@@ -8,10 +8,10 @@ const Navbar = () => {
           <a href="/"><i className="fa-solid fa-football"></i> NFL Guesser</a>
         </h1>
         <ul>
-          <li><a href="profiles.html">Developers</a></li>
-          <li><a href="register.html">Register</a></li>
+          <li><a href="submissions">Submissions</a></li>
           <li><a href="guess">Guess</a></li>
-
+          <li><a href="about">About</a></li>
+          <li><a href="accuracy">Accuracy</a></li>
         </ul>
       </nav>
     )

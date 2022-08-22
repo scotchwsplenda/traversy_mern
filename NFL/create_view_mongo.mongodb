@@ -1,0 +1,38 @@
+// MongoDB Playground
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+// The current database to use.
+use('test');
+
+// Search for documents in the current collection.
+
+// db.guesses.aggregate( [ { $project: {ActualPrice: { $subtract: [ "$Week16_teamscore", "$Week16_oppscore" ] } } } ] )
+
+// db.guesses.aggregate( [ { $project: {ActualPrice: { $subtract: [ "$Week16_teamscore", "$Week16_oppscore" ] } , ActualPrice2: { $subtract: [ "$Week15_teamscore", "$Week15_oppscore" ] } } } ] )
+
+db.createView("vw_differential5", "guesses",  [ { $project: {
+guessername:1,
+team:1,
+Week1_differential: { $subtract: [ "$Week1_teamscore", "$Week1_oppscore" ]}:{$gt:0},
+Week2_differential: { $subtract: [ "$Week2_teamscore", "$Week2_oppscore" ]},
+Week3_differential: { $subtract: [ "$Week3_teamscore", "$Week3_oppscore" ]},
+Week4_differential: { $subtract: [ "$Week4_teamscore", "$Week4_oppscore" ]},
+Week5_differential: { $subtract: [ "$Week5_teamscore", "$Week5_oppscore" ]},
+Week6_differential: { $subtract: [ "$Week6_teamscore", "$Week6_oppscore" ]},
+Week7_differential: { $subtract: [ "$Week7_teamscore", "$Week7_oppscore" ]},
+Week8_differential: { $subtract: [ "$Week8_teamscore", "$Week8_oppscore" ]},
+Week9_differential: { $subtract: [ "$Week9_teamscore", "$Week9_oppscore" ]},
+Week10_differential: { $subtract: [ "$Week10_teamscore", "$Week10_oppscore" ]},
+Week11_differential: { $subtract: [ "$Week11_teamscore", "$Week11_oppscore" ]},
+Week12_differential: { $subtract: [ "$Week12_teamscore", "$Week12_oppscore" ]},
+Week13_differential: { $subtract: [ "$Week13_teamscore", "$Week13_oppscore" ]},
+Week14_differential: { $subtract: [ "$Week14_teamscore", "$Week14_oppscore" ]},
+Week15_differential: { $subtract: [ "$Week15_teamscore", "$Week15_oppscore" ]},
+Week16_differential: { $subtract: [ "$Week16_teamscore", "$Week16_oppscore" ]},
+Week17_differential: { $subtract: [ "$Week17_teamscore", "$Week17_oppscore" ]},
+Week18_differential: { $subtract: [ "$Week18_teamscore", "$Week18_oppscore" ]}
+}}] )
+
+
+db.vw_differential4.find(
+{}, {_id:0})
