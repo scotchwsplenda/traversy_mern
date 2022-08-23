@@ -18,6 +18,7 @@ if(!errors.isEmpty()){
 const {guessername
     ,team
     ,date
+    ,email
     ,Week1_oppscore
     ,Week2_oppscore
     ,Week3_oppscore
@@ -59,6 +60,7 @@ guess = new Guess({
     guessername
     ,date
     ,team
+    ,email
     ,Week1_oppscore 
     ,Week2_oppscore 
     ,Week3_oppscore 

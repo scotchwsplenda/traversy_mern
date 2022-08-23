@@ -33,6 +33,7 @@ props.onSaveWeekData(inputs);
     value={inputs.props} //this seems like it should be inputs.[props.teamscore] or [inputs.props.teamscore]
     onChange={handleChange} 
     min="0"
+    disabled={props.tix==="Bye Week"}
     />
     <div><h3 >{props.tix.split(" ")[1]} Score</h3></div>
     <input className='score' 
@@ -42,7 +43,7 @@ props.onSaveWeekData(inputs);
     value={inputs.props}
     onChange={handleChange} 
     min="0"
-
+    disabled={props.tix==="Bye Week"}
     />
     </div>
     </div>

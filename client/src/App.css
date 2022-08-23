@@ -410,7 +410,45 @@ button {
   background-color: lightgrey;
   border-radius: 12px;
   grid-template-columns: 1fr 4fr;
+  padding-right: 3rem;
+  height: 3rem;
 }
+.profile-about2{
+  grid-area: about about;
+  display: flex;
+  flex-direction: column;
+  align-items: top;
+  justify-content: center;
+  text-align: center;
+  background-color: lightskyblue;
+  border-radius: 12px;
+  grid-template-columns: 1fr 4fr;
+  padding-right: 3rem;
+  padding-bottom: 9%;
+  height: 3rem;
+  font-size: larger;
+  border: #333 solid;
+}
+
+.profile-input{
+  grid-area: about about;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  text-justify: distribute;
+  justify-content: center;
+  padding-block: 4%;
+  background-color: rgb(195, 223, 195);
+  border-radius: 12px;
+  grid-template-columns: 1fr 4fr;
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: xx-large;
+  border: #333 solid;
+  height: 45%}
+
+
+
 .score {
   text-align: center;
   border-radius: 12px;
