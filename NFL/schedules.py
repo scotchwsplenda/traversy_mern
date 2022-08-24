@@ -25,40 +25,71 @@ import json
 
 # [print(str(item[0:])[1:-1]) for item in links]
 
-league = ['crd','atl','rav','buf','car','chi','cin','cle','dal','den','det','gnb','htx','clt','jax','kan','sdg','ram','rai','mia','min','nor','nwe','nyg','nyj','phi','pit','sea','sfo','tam','oti','was',]
+league = ['sea',
+'sfo',
+'chi',
+'cin',
+'buf',
+'den',
+'cle',
+'tam',
+'crd',
+'sdg',
+'kan',
+'clt',
+'was',
+'dal',
+'mia',
+'phi',
+'atl',
+'nyg',
+'jax',
+'nyj',
+'det',
+'gnb',
+'car',
+'nwe',
+'rai',
+'ram',
+'rav',
+'nor',
+'pit',
+'htx',
+'oti',
+'min']
 teams = [
- 'Cardinals'
-,'Falcons'
-,'Ravens'
-,'Bills'
-,'Panthers'
+'Seahawks'
+,'49ers'
 ,'Bears'
 ,'Bengals'
-,'Browns'
-,'Cowboys'
+,'Bills'
 ,'Broncos'
+,'Browns'
+,'Buccaneers'
+,'Cardinals'
+,'Chargers'
+,'Chiefs'
+,'Colts'
+,'Commandos'
+,'Cowboys'
+,'Dolphins'
+,'Eagles'
+,'Falcons'
+,'Giants'
+,'Jaguars'
+,'Jets'
 ,'Lions'
 ,'Packers'
-,'Texans'
-,'Colts'
-,'Jaguars'
-,'Chiefs'
-,'Chargers'
-,'Rams'
-,'Raiders'
-,'Dolphins'
-,'Vikings'
-,'Saints'
+,'Panthers'
 ,'Patriots'
-,'Giants'
-,'Jets'
-,'Eagles'
+,'Raiders'
+,'Rams'
+,'Ravens'
+,'Saints'
 ,'Steelers'
-,'Seahawks'
-,'49ers'
-,'Buccaneers'
+,'Texans'
 ,'Titans'
-,'Commandos'
+,'Vikings'
 
 ]
 

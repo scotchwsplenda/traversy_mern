@@ -20,14 +20,14 @@ const About = () => {
 
                         <li>When the time space continuum carries us from the realm of prognostication into the realm of reflection (ie I haven't made this page yet) you can compare prognostications with cold, hard, refreshing reality (insofar as reality is reflected in the scores of football games). This exercise is called <a href="/accuracy">Accuracy</a>. <p>Accuracy will be graded using a technically advanced algorithm made from particularly sophisticated math. You may be curious to know that the math algorithm works thusly: </p></li>
                         <table >
-                            <tr><td>How closely you progged the point differential ie the spread</td></tr>
-                            <tr><td>How closely you progged total points scored ie the overunder</td></tr>
+                            <tr><td>(a) How closely you progged the point differential ie the Spread</td></tr>
+                            <tr><td>(b) How closely you progged total points scored ie the OverUnder</td></tr>
                         </table>
                     </ol>
-                    <li>Below is the grading rubric. The final grade is your combined performance on items (a) and (b). For example if your prognosticated game score was a 24-27 (OverUnder: 51, Spread: 3) loss and the actual game score was a 30-33 (OverUnder: 63, Spread: 3) loss your prognostication score would be 185:</li>
+                    <li>For example if your prognosticated game score was a 24-27 [(a) OverUnder: 51, (b) Spread: 3] loss and the actual game score was a 30-33 [(a) OverUnder: 63, (b) Spread: 3] loss your prognostication score would be 185:</li>
                     <table>
-                        <tr> (a) OverUnder: 63-51=12 {'==>'} 85</tr>
-                        <tr> (b) Spread: 3-3=0 {'==>'} 100</tr>
+                        <tr> <td> (a) OverUnder: 63-51=12 {'==>'} 85 </td></tr>
+                        <tr> <td> (b) Spread: 3-3=0 {'==>'} 100 </td></tr>
                     </table>
                     <li /> It is worth noting an incorrect guess on the outcome of the game (guessing a win when the team loses) results in a score of 0 for the spread. Also note that ties are treated as losses in this game because this is football not brainball.
                 </ul>

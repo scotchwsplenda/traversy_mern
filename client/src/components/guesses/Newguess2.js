@@ -122,25 +122,28 @@ const Newguess = () => {
           </select>
         </label>
 
-        <label className='post profile-about2'>Please give your guess a name
+        <label className='post profile-about2'>Please give your guess a name*
           <input
           className='post profile-input'
             type='text'
             name="guessername"
             value={[inputs.guessername]}
-            onChange={handleChange} />
+            onChange={handleChange}
+            required='true' />
         </label>
+        <p>'This name must be unique and ideally something you'll remember. It doesn't necessarily have to be your name but please not too naughty</p>
         <label className='post profile-about2'>Please provide me an email address*
           <input
           className='post profile-input'
             type='text'
             name="email"
             value={[inputs.email]}
-            onChange={handleChange} />
+            onChange={handleChange} 
+            required='true' />
         </label>
-        <p>*I will use this to remind you to compare your guesses to what actually happened at the end of the season, which is kind of the point of this whole stupid thing</p>
+        <p>*Around mid January I'll remind you to compare your guesses against what happened in the season, which is kinda the point of this whole deal</p>
       </div>
-
+      <p>--For all you jokers out there, the max guessable score is 69--</p>
       <div className="wrapper">
         {/* action="/guess" */}
         <Week onSaveWeekData={handleSaveWeekData} tix={options[inputs.team][0]} team={inputs.team} weeky="1" oppscore='Week1_oppscore' teamscore='Week1_teamscore' ></Week>
@@ -162,7 +165,7 @@ const Newguess = () => {
         <Week onSaveWeekData={handleSaveWeekData} tix={options[inputs.team][16]} team={inputs.team} weeky="17" oppscore='Week17_oppscore' teamscore='Week17_teamscore'></Week>
         <Week onSaveWeekData={handleSaveWeekData} tix={options[inputs.team][17]} team={inputs.team} weeky="18" oppscore='Week18_oppscore' teamscore='Week18_teamscore'></Week>
 
-        <button className="btn" type="submit" >Submit</button>
+        <button className="btn btn-primary" type="submit" >Submit</button>
 
       </div>
     </form>

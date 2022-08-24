@@ -34,6 +34,7 @@ props.onSaveWeekData(inputs);
     onChange={handleChange} 
     min="0"
     disabled={props.tix==="Bye Week"}
+    max="69"
     />
     <div><h3 >{props.tix.split(" ")[1]} Score</h3></div>
     <input className='score' 
@@ -44,6 +45,7 @@ props.onSaveWeekData(inputs);
     onChange={handleChange} 
     min="0"
     disabled={props.tix==="Bye Week"}
+    max="69"
     />
     </div>
     </div>
