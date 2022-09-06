@@ -97,11 +97,7 @@ const Newguess = () => {
     }
     catch (err) { }
     // return <Redirect to='/submissions'/>
-    console.log(guessy)
-
-
-
-
+    // console.log(guessy)
   }
 
   return <Fragment>
