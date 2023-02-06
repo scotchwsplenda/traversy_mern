@@ -6,6 +6,7 @@ router.get('/', async(req, res) => {
     try {
         const allguesses = await Guess.find({}, {_id:0});
         res.send(allguesses)
+        // console.log(allguesses)  
     } catch(err) {
         console.error(err.message)
         res.status(500).send("Server is Butt")

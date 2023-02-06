@@ -4,7 +4,7 @@ const axios = require('axios');
 
 
 // https://www.geeksforgeeks.org/how-to-map-data-into-components-using-reactjs/
-const Submissions = () => {
+const Newguess = () => {
 
   const baseURL = "api/submissions";
 
@@ -88,7 +88,6 @@ const Submissions = () => {
       item.Week16_oppscore +
       item.Week17_oppscore +
       item.Week18_oppscore]
-
     return <div className="profile-grid" key={index}>
       <h1> Guess Name: {item.guessername}</h1>
       <h3>Avg Points Scored: {(pf / 17).toFixed(2)}</h3>
@@ -243,4 +242,4 @@ const Submissions = () => {
   </Fragment>
   );
 }
-export default Submissions;
+export default Newguess;

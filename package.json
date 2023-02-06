@@ -7,9 +7,7 @@
     "start": "node server",
     "server": "nodemon server",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
-    "sexecute": "bash -c run.sh"
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -22,14 +20,19 @@
   },
   "homepage": "https://github.com/scotchwsplenda/traversy_mern#readme",
   "dependencies": {
+    "axios": "^1.2.2",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.7",
     "cors": "^2.8.5",
-    "express": "^4.18.1",
+    "express": "^4.18.2",
     "express-validator": "^6.14.2",
     "gravatar": "^1.8.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^5.3.4",
+    "react-scripts": "^5.0.1",
     "request": "^2.88.2"
   },
   "devDependencies": {

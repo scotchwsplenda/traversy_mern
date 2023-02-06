@@ -97,8 +97,8 @@ schedule_dict = {}
 for x ,y  in zip(league, teams):
 
     url = requests.get('https://www.pro-football-reference.com/teams/'+x+'/2022.htm')
-
-    table = pd.read_html(url.text, match='Game Results Table')
+    print(url.text)
+    table = pd.read_html(url.text, match='games')
 
     df = pd.DataFrame(table[0])
     df = df.iloc[5:]
@@ -189,7 +189,7 @@ for x ,y  in zip(league, teams):
 #     write = csv.writer(f) 
 #     write.writerow(ol_list) 
 
+print(schedule_dict)
 
-
-with open('NFL_Schedule2022.json', 'w') as fp:
-    json.dump(schedule_dict, fp)
+# with open('NFL_Schedule2022.json', 'w') as fp:
+#     json.dump(schedule_dict, fp)
