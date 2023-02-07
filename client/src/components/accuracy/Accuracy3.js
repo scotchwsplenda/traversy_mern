@@ -1,21 +1,11 @@
 import React, { useEffect,  useState, Fragment , MenuItem} from 'react';
 import options from '../../NFL_Schedule2022.json'
-import OverUnders from '../../NFL_OverUnder_2022.json'
-import Spreads from '../../NFL_Spread_2022.json'
 import axios from "axios"
-// const axios = require('axios');
-
-/*
-
-the actual OvUnd column grows by a weird amount, divisible by 3, then you switch between teams
-
-*/
+import AccuracyGuesser from './AccuracyGuesser';
 
 const Accuracy = () => {
 
   const [post, setPost] = useState([""]);
-  const [overundies, setOverundies] = useState([""]);
-  const [spreadis, setSpreadis] = useState([""]);
   const [teamy, setTeam] = useState([{ team : ""  }]);
   const [drop, setDrop] = useState([""]);
 
@@ -30,8 +20,6 @@ const Accuracy = () => {
   });}, []);
 
 
-//maybe you can define the actual spreads outside the per guesser mapping and for a for in range of 18 type thing inside the table?
-const realspread = spreadis
   const allGuesses =  teamy.map( //this part breaks down all the mongodb guesses separated by guesser
     (item, index) => { 
 
@@ -55,33 +43,13 @@ const realspread = spreadis
     item.Week16_teamscore - item.Week16_oppscore,
     item.Week17_teamscore - item.Week17_oppscore,
     item.Week18_teamscore - item.Week18_oppscore]
-    console.log({...spreadis},"butt")
-    console.log({...guesserspread},"dude")
-    console.log(Spreads[drop])
-     
-    // this part is the HTML subcomponent peice
-    return <div className="profile-grid" key={index}> 
 
-    <h1> Guess Name: {item.guessername}</h1>
-    <div className='profile-top'>
-      <h4>Submitted: {item.date} </h4>
-      </div>
-        <table> 
-          <tr><th>Actual Spread</th><th>GuessedSpread</th><th>Actual OvUnd</th></tr>
-          <td>
-         {/* {Spreads[drop].map(reptile  => (<tr key={reptile}>{reptile}</tr> ) )}    */}
-         </td>
-         <td>
-         {guesserspread.map(reptile => (<tr key={reptile}>{reptile}</tr> ))}   
-         </td>
-        <td>
-         {overundies.map(gull => (<tr key={gull}>{gull}</tr>))} 
-         </td>
-        </table>    
-      </div>
+return (
+  <AccuracyGuesser guessedspread={guesserspread}  team={drop}> </AccuracyGuesser>
+)}
+)
 
-  
-    })
+
 
 // this block is 3 consecutive commands
   options = {  "Pick Team": "",...options } //spreading out everything in the NFL_Schedule2022 file, add a 'pick team' key with a blank value

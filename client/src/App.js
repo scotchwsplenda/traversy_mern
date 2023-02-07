@@ -5,7 +5,7 @@ import Landing from './components/layout/Landing';
 import Submissions from './components/submissions/Submissions2';
 import Newguess2 from './components/guesses/Newguess2';
 import About from './components/layout/about';
-import Accuracy from './components/accuracy/Accuracy2';
+import Accuracy from './components/accuracy/Accuracy3';
 import './App.css';
 
 const App = () => (

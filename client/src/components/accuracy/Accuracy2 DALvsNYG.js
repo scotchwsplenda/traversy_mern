@@ -30,8 +30,7 @@ const Accuracy = () => {
   });}, []);
 
 
-//maybe you can define the actual spreads outside the per guesser mapping and for a for in range of 18 type thing inside the table?
-const realspread = spreadis
+
   const allGuesses =  teamy.map( //this part breaks down all the mongodb guesses separated by guesser
     (item, index) => { 
 
@@ -55,13 +54,10 @@ const realspread = spreadis
     item.Week16_teamscore - item.Week16_oppscore,
     item.Week17_teamscore - item.Week17_oppscore,
     item.Week18_teamscore - item.Week18_oppscore]
-    console.log({...spreadis},"butt")
-    console.log({...guesserspread},"dude")
-    console.log(Spreads[drop])
-     
+    console.log({...item})
+    console.log([...guesserspread])
     // this part is the HTML subcomponent peice
     return <div className="profile-grid" key={index}> 
-
     <h1> Guess Name: {item.guessername}</h1>
     <div className='profile-top'>
       <h4>Submitted: {item.date} </h4>
@@ -69,10 +65,10 @@ const realspread = spreadis
         <table> 
           <tr><th>Actual Spread</th><th>GuessedSpread</th><th>Actual OvUnd</th></tr>
           <td>
-         {/* {Spreads[drop].map(reptile  => (<tr key={reptile}>{reptile}</tr> ) )}    */}
+         {spreadis.map(reptile => (<tr key={index}>{reptile}</tr> ))}   
          </td>
          <td>
-         {guesserspread.map(reptile => (<tr key={reptile}>{reptile}</tr> ))}   
+         {guesserspread.map(reptile => (<tr key={index}>{reptile}</tr> ))}   
          </td>
         <td>
          {overundies.map(gull => (<tr key={gull}>{gull}</tr>))} 
