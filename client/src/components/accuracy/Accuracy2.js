@@ -34,7 +34,7 @@ const Accuracy = () => {
 const realspread = spreadis
   const allGuesses =  teamy.map( //this part breaks down all the mongodb guesses separated by guesser
     (item, index) => { 
-
+      console.log(index, "BIKE")
 //this is the spread by guesser
   const guesserspread = [ 
     item.Week1_teamscore - item.Week1_oppscore,
@@ -56,9 +56,13 @@ const realspread = spreadis
     item.Week17_teamscore - item.Week17_oppscore,
     item.Week18_teamscore - item.Week18_oppscore]
     console.log({...spreadis},"butt")
-    console.log({...guesserspread},"dude")
-    console.log(Spreads[drop])
-     
+    console.log(guesserspread[Object.keys(guesserspread)[0]],"guesserspread[Object.keys(guesserspread)[0]]")
+    console.log({...guesserspread},"{...guesserspread}")
+    // console.log({...guesserspread[1]},"{...guesserspread[0]}")
+    console.log(Spreads[drop], "Spreads[drop]")
+
+    const guesserspreadarray = {...guesserspread}
+    console.log({guesserspreadarray},"dude")
     // this part is the HTML subcomponent peice
     return <div className="profile-grid" key={index}> 
 

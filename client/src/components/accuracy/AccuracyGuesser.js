@@ -5,10 +5,10 @@ import Spreads from '../../NFL_Spread_2022.json'
 const AccuracyGuesser = (props) => {
 
 
-    return (<div className="profile-grid" key={index}> 
-    <h1> Guess Name: {item.guessername}</h1>
+    return (<div className="profile-grid" key={props.index}> 
+    {/* <h1> Guess Name: {item.guessername}</h1> */}
     <div className='profile-top'>
-      <h4>Submitted: {item.date} </h4>
+      {/* <h4>Submitted: {item.date} </h4> */}
       </div>
         <table> 
           <tr><th>Actual Spread</th><th>GuessedSpread</th><th>Actual OvUnd</th></tr>
@@ -16,12 +16,13 @@ const AccuracyGuesser = (props) => {
          {/* {Spreads[drop].map(reptile  => (<tr key={reptile}>{reptile}</tr> ) )}    */}
          </td>
          <td>
-         {guesserspread.map(reptile => (<tr key={reptile}>{reptile}</tr> ))}   
+         {props.guesserspread.map(reptile => (<tr key={reptile}>{reptile}</tr> ))}   
          </td>
         <td>
-         {Spreads[team].map(gull => (<tr key={gull}>{gull}</tr>))} 
+         {Spreads[props.team].map(gull => (<tr key={gull}>{gull}</tr>))} 
          </td>
         </table>    
+        
       </div>
 )
 }

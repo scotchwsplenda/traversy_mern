@@ -45,11 +45,9 @@ const Accuracy = () => {
     item.Week18_teamscore - item.Week18_oppscore]
 
 return (
-  <AccuracyGuesser guessedspread={guesserspread}  team={drop}> </AccuracyGuesser>
+  <AccuracyGuesser guessedspread={guesserspread}  team={item.team} index={index}> </AccuracyGuesser>
 )}
 )
-
-
 
 // this block is 3 consecutive commands
   options = {  "Pick Team": "",...options } //spreading out everything in the NFL_Schedule2022 file, add a 'pick team' key with a blank value
@@ -58,24 +56,23 @@ return (
 
   const handleChange = (event) => {//event.target.value is the value of the team when you 'onChange', what is the magic that makes this work? like how does the computer know you changed it
     setTeam(post.filter(guess => guess.team === event.target.value)); //this filters the mongodb object to just the team you want
-    setOverundies(OverUnders[event.target.value]);//this updates file source JSON to a filtered object, the key is the team you chose in the dropdown
-    setSpreadis(Spreads[event.target.value]);
+    // setOverundies(OverUnders[event.target.value]);//this updates file source JSON to a filtered object, the key is the team you chose in the dropdown
+    // setSpreadis(Spreads[event.target.value]);
     setDrop(event.target.value) //this is just to update the dropdown bar so it stays after you click
   }
 
 
 
 return <Fragment>
-<div >
+<div>
 <label className='post profile-about2'>
   What team do you care to see butt guesses for?
-  <select classnName="post profile-input"
-    value={drop}
-    onChange={handleChange}>
+  <select classnName="post profile-input" value={drop} onChange={handleChange}>
     {optionItems}
   </select>
 </label>
 </div>
+
   <div className="wrapper">
     {allGuesses}
   </div>
