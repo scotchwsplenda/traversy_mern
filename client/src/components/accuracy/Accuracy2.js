@@ -91,7 +91,7 @@ const realspread = spreadis
 
 
     // this part is the HTML subcomponent peice
-    return <div className="profile-grid" key={index}> 
+    return (<div className="profile-grid" key={index}> 
 
     <h1> Guess Name: {item.guessername}</h1>
     <div className='profile-top'>
@@ -99,13 +99,17 @@ const realspread = spreadis
       </div>
         <table> 
           <tr><th>Actual Spread</th><th>GuessedSpread</th><th>Actual OvUnd</th></tr>
-
-
+          <tr><td>{Spreads[drop][1]}</td><td>{guesserspread[1]}</td></tr>
+          <tr><td>{Spreads[drop][2]}</td><td>{guesserspread[2]}</td></tr>
+          <tr><td>{Spreads[drop][3]}</td><td>{guesserspread[3]}</td></tr>
+          <tr><td>{Spreads[drop][4]}</td><td>{guesserspread[4]}</td></tr>
         </table>    
       </div>
 
+    )
+    }
   
-    })
+    )
 
 // this block is 3 consecutive commands
   options = {  "Pick Team": "",...options } //spreading out everything in the NFL_Schedule2022 file, add a 'pick team' key with a blank value

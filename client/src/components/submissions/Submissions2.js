@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import options from '../../NFL_Schedule2022Submissions.json'
-const axios = require('axios');
+// const axios = require('axios');
+import axios from "axios"
 
 
 // https://www.geeksforgeeks.org/how-to-map-data-into-components-using-reactjs/
@@ -156,6 +157,8 @@ const Submissions = () => {
       + item.Week17_teamscore
       + item.Week18_teamscore
   }, 0);
+
+  console.log(pointsScored)
 
   const pointsAllowed = teamy.reduce((accumulator, item) => {
     return accumulator
