@@ -55,14 +55,41 @@ const realspread = spreadis
     item.Week16_teamscore - item.Week16_oppscore,
     item.Week17_teamscore - item.Week17_oppscore,
     item.Week18_teamscore - item.Week18_oppscore]
-    console.log({...spreadis},"butt")
-    console.log(guesserspread[Object.keys(guesserspread)[0]],"guesserspread[Object.keys(guesserspread)[0]]")
-    console.log({...guesserspread},"{...guesserspread}")
-    // console.log({...guesserspread[1]},"{...guesserspread[0]}")
-    console.log(Spreads[drop], "Spreads[drop]")
 
-    const guesserspreadarray = {...guesserspread}
-    console.log({guesserspreadarray},"dude")
+
+// how do I put these all inside something so I can run it with one line and close it with the little carrot on the side?
+// const sexy = 
+    console.log({...spreadis},"{...spreadis}")
+      console.log(guesserspread[Object.keys(guesserspread)[0]],"guesserspread[Object.keys(guesserspread)[0]]")
+
+      console.log(guesserspread,"guesserspread")
+      console.log(guesserspread[1],"guesserspread[1]")
+      console.log(typeof(guesserspread),"typeof guesserspread")
+
+      console.log({...guesserspread},"{...guesserspread}")
+      const guesserspreadarray = {...guesserspread}
+      console.log(guesserspreadarray,"guesserspreadarray")
+
+      console.log(Spreads[drop], "Spreads[drop]")
+      try {
+        console.log(Spreads[drop][1], 'Spreads[drop][1]')
+      } catch (err) {
+        console.log(err.message, 'Spreads[drop][1]'); 
+      }
+
+
+      // THIS BUT IN THE HTML
+      for (var i = 0; i < 3; i++) {
+        try {
+          console.log(Spreads[drop][i],guesserspread[i], Spreads[drop][i]+guesserspread[i],item.guessername)
+        } catch (err) {
+          console.log(err.message, 'Spreads[drop][1]'); 
+        }
+
+    }
+    // Spreads[drop][i],guesserspread[i] this but for the calculation peice, bundled into a nice formula 
+
+
     // this part is the HTML subcomponent peice
     return <div className="profile-grid" key={index}> 
 
@@ -72,15 +99,8 @@ const realspread = spreadis
       </div>
         <table> 
           <tr><th>Actual Spread</th><th>GuessedSpread</th><th>Actual OvUnd</th></tr>
-          <td>
-         {/* {Spreads[drop].map(reptile  => (<tr key={reptile}>{reptile}</tr> ) )}    */}
-         </td>
-         <td>
-         {guesserspread.map(reptile => (<tr key={reptile}>{reptile}</tr> ))}   
-         </td>
-        <td>
-         {overundies.map(gull => (<tr key={gull}>{gull}</tr>))} 
-         </td>
+
+
         </table>    
       </div>
 
