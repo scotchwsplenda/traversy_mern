@@ -3,6 +3,13 @@ import options from '../../NFL_Schedule2022.json'
 import OverUnders from '../../NFL_OverUnder_2022.json'
 import Spreads from '../../NFL_Spread_2022.json'
 import axios from "axios"
+// const axios = require('axios');
+
+/*
+
+the actual OvUnd column grows by a weird amount, divisible by 3, then you switch between teams
+
+*/
 
 const Accuracy = () => {
 
@@ -24,8 +31,14 @@ const Accuracy = () => {
     });
   }, []);
 
+
+  //maybe you can define the actual spreads outside the per guesser mapping and for a for in range of 18 type thing inside the table?
+  const realspread = spreadis
+  // debugger
   const allGuesses = teamy.map( //this part breaks down all the mongodb guesses separated by guesser
     (item, index) => {
+      console.log('xxx')
+      console.log(index, "BIKE")
       //this is the spread by guesser
       const guesserspread = [
         item.Week1_teamscore - item.Week1_oppscore,
@@ -46,26 +59,15 @@ const Accuracy = () => {
         item.Week16_teamscore - item.Week16_oppscore,
         item.Week17_teamscore - item.Week17_oppscore,
         item.Week18_teamscore - item.Week18_oppscore]
-        const guesseroverund = [
-          item.Week1_teamscore  + item.Week1_oppscore,
-          item.Week2_teamscore  + item.Week2_oppscore,
-          item.Week3_teamscore  + item.Week3_oppscore,
-          item.Week4_teamscore  + item.Week4_oppscore,
-          item.Week5_teamscore  + item.Week5_oppscore,
-          item.Week6_teamscore  + item.Week6_oppscore,
-          item.Week7_teamscore  + item.Week7_oppscore,
-          item.Week8_teamscore  + item.Week8_oppscore,
-          item.Week9_teamscore  + item.Week9_oppscore,
-          item.Week10_teamscore + item.Week10_oppscore,
-          item.Week11_teamscore + item.Week11_oppscore,
-          item.Week12_teamscore + item.Week12_oppscore,
-          item.Week13_teamscore + item.Week13_oppscore,
-          item.Week14_teamscore + item.Week14_oppscore,
-          item.Week15_teamscore + item.Week15_oppscore,
-          item.Week16_teamscore + item.Week16_oppscore,
-          item.Week17_teamscore + item.Week17_oppscore,
-          item.Week18_teamscore + item.Week18_oppscore]
-      try {
+
+
+      // how do I put these all inside something so I can run it with one line and close it with the little carrot on the side?
+      // const sexy = 
+      // debugger
+      let foo = 45
+      let bar = foo + 10
+      let sexy = 69
+
       console.log({ ...spreadis }, "{...spreadis}")
       console.log(guesserspread[Object.keys(guesserspread)[0]], "guesserspread[Object.keys(guesserspread)[0]]")
 
@@ -81,24 +83,79 @@ const Accuracy = () => {
         console.log(Spreads[drop][1], 'Spreads[drop][1]')
       } catch (err) {
         console.log(err.message, 'Spreads[drop][1]');
-      }} catch (err) {console.log("EGGS")}
+      }
+
+
+      // THIS BUT IN THE HTML
+      for (var i = 0; i < 5; i++) {
+        try {
+          console.log(Spreads[drop][i], guesserspread[i], Spreads[drop][i] + guesserspread[i], item.guessername)
+        } catch (err) {
+          console.log(err.message, 'Spreads[drop][1]');
+        }
+
+      }
+      // Spreads[drop][i],guesserspread[i] this but for the calculation peice, bundled into a nice formula 
+
+      const foo_object = {
+        one: [1, 1],
+        two: [2, 2],
+        three: [3, 3]
+      }
+      // [one, two, three]-Object.keys
+      // [[1,1],[2,2],[3,3]] - Object.values
+      // this part is the HTML subcomponent peice
+
+      let output
+      // debugger
+      for (let i = 0; i < 5; i++) {
+        if (!Array.isArray(drop)) {
+
+
+          // const score = drop.length && drop[0]!=="" && Spreads[drop] ? Spreads[drop[0]][i] : null
+          const score = drop !== "" && Spreads[drop] ? Spreads[drop][i] : null
+          if (score) {
+            output = <>{output} <tr><td>i</td><td>{score}</td></tr></>
+          }
+        }
+      }
+      // console.log('xxx',Spreads)
+      // console.log('xxx',drop)
+      // console.log('xxx', Spreads[drop][0])
+
 
       return (<div className="profile-grid" key={index}>
+
         <h1> Guess Name: {item.guessername}</h1>
         <div className='profile-top'>
           <h4>Submitted: {item.date} </h4>
         </div>
         <table>
-          <tr><th>WK</th><th>GuessedSpread</th><th>ActualSpread</th><th>GuessedOvUn</th><th>ActualOvUnd</th></tr>
-          {guesserspread.map((x,i) => 
-          {
-            return <tr><td>WK{i+1}</td><td>{x}</td><td>{Spreads[drop][i]}</td><td>{guesseroverund[i]}</td><td>{OverUnders[drop][i]}</td></tr>
+          <tr><th>Actual Spread</th><th>GuessedSpread</th></tr>
+          {[1, 2, 3].map(foo => {
+            return (<tr><td>foo=</td><td>{foo}</td></tr>)
           })}
+
+          {Object.keys(foo_object).map(foo => {
+            return (<tr><td>{foo}</td><td>{foo_object[foo].toString()}</td></tr>)
+          })}
+
+          {output}
+
+
+
+          {/* 
+          <tr><td>{Spreads[drop][1]}</td><td>{guesserspread[1]}</td></tr>
+          <tr><td>{Spreads[drop][2]}</td><td>{guesserspread[2]}</td></tr>
+          <tr><td>{Spreads[drop][3]}</td><td>{guesserspread[3]}</td></tr>
+          <tr><td>{Spreads[drop][4]}</td><td>{guesserspread[4]}</td></tr> */}
         </table>
       </div>
-      ) 
-    })
 
+      )
+    }
+
+  )
 
   // this block is 3 consecutive commands
   options = { "Pick Team": "", ...options } //spreading out everything in the NFL_Schedule2022 file, add a 'pick team' key with a blank value

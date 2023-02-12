@@ -44,7 +44,7 @@ const Newguess = () => {
     const guessy = {
       guessername: inputs.guessername
       , team: inputs.team
-      ,email: inputs.email
+      , email: inputs.email
       , Week1_oppscore: inputs.Week1_oppscore
       , Week2_oppscore: inputs.Week2_oppscore
       , Week3_oppscore: inputs.Week3_oppscore
@@ -112,15 +112,15 @@ const Newguess = () => {
             name='team'
             type='text'
             font-size='24px'
-          
-            >
+
+          >
             {optionItems}
           </select>
         </label>
 
         <label className='post profile-about2'>Please give your guess a name*
           <input
-          className='post profile-input'
+            className='post profile-input'
             type='text'
             name="guessername"
             value={[inputs.guessername]}
@@ -130,11 +130,11 @@ const Newguess = () => {
         <p>'This name must be unique and ideally something you'll remember. It doesn't necessarily have to be your name but please not too naughty</p>
         <label className='post profile-about2'>Please provide me an email address*
           <input
-          className='post profile-input'
+            className='post profile-input'
             type='text'
             name="email"
             value={[inputs.email]}
-            onChange={handleChange} 
+            onChange={handleChange}
             required='true' />
         </label>
         <p>*Around mid January I'll remind you to compare your guesses against what happened in the season, which is kinda the point of this whole deal</p>
