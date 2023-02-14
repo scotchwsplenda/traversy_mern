@@ -46,42 +46,60 @@ const Accuracy = () => {
         item.Week16_teamscore - item.Week16_oppscore,
         item.Week17_teamscore - item.Week17_oppscore,
         item.Week18_teamscore - item.Week18_oppscore]
-        const guesseroverund = [
-          item.Week1_teamscore  + item.Week1_oppscore,
-          item.Week2_teamscore  + item.Week2_oppscore,
-          item.Week3_teamscore  + item.Week3_oppscore,
-          item.Week4_teamscore  + item.Week4_oppscore,
-          item.Week5_teamscore  + item.Week5_oppscore,
-          item.Week6_teamscore  + item.Week6_oppscore,
-          item.Week7_teamscore  + item.Week7_oppscore,
-          item.Week8_teamscore  + item.Week8_oppscore,
-          item.Week9_teamscore  + item.Week9_oppscore,
-          item.Week10_teamscore + item.Week10_oppscore,
-          item.Week11_teamscore + item.Week11_oppscore,
-          item.Week12_teamscore + item.Week12_oppscore,
-          item.Week13_teamscore + item.Week13_oppscore,
-          item.Week14_teamscore + item.Week14_oppscore,
-          item.Week15_teamscore + item.Week15_oppscore,
-          item.Week16_teamscore + item.Week16_oppscore,
-          item.Week17_teamscore + item.Week17_oppscore,
-          item.Week18_teamscore + item.Week18_oppscore]
-      try {
-      console.log({ ...spreadis }, "{...spreadis}")
-      console.log(guesserspread[Object.keys(guesserspread)[0]], "guesserspread[Object.keys(guesserspread)[0]]")
+      const guesseroverund = [
+        item.Week1_teamscore + item.Week1_oppscore,
+        item.Week2_teamscore + item.Week2_oppscore,
+        item.Week3_teamscore + item.Week3_oppscore,
+        item.Week4_teamscore + item.Week4_oppscore,
+        item.Week5_teamscore + item.Week5_oppscore,
+        item.Week6_teamscore + item.Week6_oppscore,
+        item.Week7_teamscore + item.Week7_oppscore,
+        item.Week8_teamscore + item.Week8_oppscore,
+        item.Week9_teamscore + item.Week9_oppscore,
+        item.Week10_teamscore + item.Week10_oppscore,
+        item.Week11_teamscore + item.Week11_oppscore,
+        item.Week12_teamscore + item.Week12_oppscore,
+        item.Week13_teamscore + item.Week13_oppscore,
+        item.Week14_teamscore + item.Week14_oppscore,
+        item.Week15_teamscore + item.Week15_oppscore,
+        item.Week16_teamscore + item.Week16_oppscore,
+        item.Week17_teamscore + item.Week17_oppscore,
+        item.Week18_teamscore + item.Week18_oppscore]
+      // try {
+      // console.log({ ...spreadis }, "{...spreadis}")
+      // console.log(guesserspread[Object.keys(guesserspread)[0]], "guesserspread[Object.keys(guesserspread)[0]]")
 
-      console.log(guesserspread, "guesserspread")
-      console.log(guesserspread[1], "guesserspread[1]")
-      console.log(typeof (guesserspread), "typeof guesserspread")
+      // console.log(guesserspread, "guesserspread")
+      // console.log(guesserspread[1], "guesserspread[1]")
+      // console.log(typeof (guesserspread), "typeof guesserspread")
 
-      console.log({ ...guesserspread }, "{...guesserspread}")
-      const guesserspreadarray = { ...guesserspread }
-      console.log(guesserspreadarray, "guesserspreadarray")
-      console.log(Spreads[drop], "Spreads[drop]")
-      try {
-        console.log(Spreads[drop][1], 'Spreads[drop][1]')
-      } catch (err) {
-        console.log(err.message, 'Spreads[drop][1]');
-      }} catch (err) {console.log("EGGS")}
+      // console.log({ ...guesserspread }, "{...guesserspread}")
+      // const guesserspreadarray = { ...guesserspread }
+      // console.log(guesserspreadarray, "guesserspreadarray")
+      // console.log(Spreads[drop], "Spreads[drop]")
+      // try {
+      //   console.log(Spreads[drop][1], 'Spreads[drop][1]')
+      // } catch (err) {
+      //   console.log(err.message, 'Spreads[drop][1]');
+      // }} catch (err) {console.log(err.message, "EGGS")}
+
+      const outside = []
+      outside.push(item.guessername)
+      guesserspread.forEach((item, index) => {
+        const actSpread = Spreads[drop][index]
+        if (item * actSpread > 0) {
+          const absy = Math.abs(item - actSpread)
+          if (absy <= 3) { outside.push(100) }
+          else if (absy <= 7) { outside.push(95) }
+          else if (absy <= 10) { outside.push(90) }
+          else if (absy <= 14) { outside.push(85) }
+          else if (absy <= 21) { outside.push(80) }
+          else { outside.push(75) }
+        }
+        else { outside.push('bitt') }
+      })
+
+      console.log(outside)
 
       return (<div className="profile-grid" key={index}>
         <h1> Guess Name: {item.guessername}</h1>
@@ -90,13 +108,12 @@ const Accuracy = () => {
         </div>
         <table>
           <tr><th>WK</th><th>GuessedSpread</th><th>ActualSpread</th><th>GuessedOvUn</th><th>ActualOvUnd</th></tr>
-          {guesserspread.map((x,i) => 
-          {
-            return <tr><td>WK{i+1}</td><td>{x}</td><td>{Spreads[drop][i]}</td><td>{guesseroverund[i]}</td><td>{OverUnders[drop][i]}</td></tr>
+          {guesserspread.map((x, i) => {
+            return <tr><td>WK{i + 1}</td><td>{x}</td><td>{Spreads[drop][i]}</td><td>{guesseroverund[i]}</td><td>{OverUnders[drop][i]}</td></tr>
           })}
         </table>
       </div>
-      ) 
+      )
     })
 
 
